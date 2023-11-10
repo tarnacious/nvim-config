@@ -1,4 +1,3 @@
-# flake.nix
 {
   description = "My own Neovim flake";
   inputs = {
