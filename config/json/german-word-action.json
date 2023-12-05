@@ -1,0 +1,15 @@
+{
+  "german-word": {
+    "type": "chat",
+    "opts": {
+      "template": "I'm doing my german homework. Please tell me more about this word. If it's a verb show me the infinitive form and how it's used, e.g. is it reflexive, what case does it give. If the word can be used in another form, like a noun, adejective or verb please explain. Here is the word: {{input}}",
+      "strategy": "edit",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "stop": [
+          "```"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "german-grammar": {
+    "type": "chat",
+    "opts": {
+      "template": "I'm doing my german homework. If there are grammar or spelling errors please print the correct version followed by a description of ALL the corrections made. Finally print an english translation. Here is my text: \n\n {{input}} ",
+      "strategy": "edit",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "stop": [
+          "```"
+        ]
+      }
+    }
+  }
+}
