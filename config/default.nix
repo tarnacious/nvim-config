@@ -1,4 +1,3 @@
-# config/default.nix
 { pkgs }:
 let
   nixFiles2ConfigFiles = dir:
