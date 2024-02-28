@@ -1,12 +1,25 @@
 { pkgs }:
 let
   customRC = import ../config { inherit pkgs; };
-  #secrets = import ../.secrets/secrets.nix;
-  plugins = import ../plugins.nix { inherit pkgs; };
-  runtimeDeps = import ../runtimeDeps.nix { inherit pkgs; };
+
+  deps = with pkgs; [
+    nodePackages.typescript-language-server
+  ];
+
+  plugins = with pkgs.vimPlugins; [
+    nvim-lspconfig
+    nerdtree
+    telescope-nvim
+    plenary-nvim
+    nui-nvim
+    ChatGPT-nvim
+    tokyonight-nvim
+    solarized-nvim
+  ];
+
   neovimRuntimeDependencies = pkgs.symlinkJoin {
     name = "neovimRuntimeDependencies";
-    paths = runtimeDeps.deps;
+    paths = deps;
   };
   myNeovimUnwrapped = pkgs.wrapNeovim pkgs.neovim {
     configure = {
