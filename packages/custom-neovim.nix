@@ -31,9 +31,6 @@ let
 in pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [ neovimRuntimeDependencies ];
-  #text = ''
-  #  OPENAI_API_KEY=${secrets.openai-api-key} ${myNeovimUnwrapped}/bin/nvim "$@"
-  #'';
   text = ''
     ${myNeovimUnwrapped}/bin/nvim "$@"
   '';
