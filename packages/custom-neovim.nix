@@ -4,6 +4,7 @@ let
 
   deps = with pkgs; [
     nodePackages.typescript-language-server
+    nodePackages.pyright
   ];
 
   plugins = with pkgs.vimPlugins; [
