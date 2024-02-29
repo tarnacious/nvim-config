@@ -2,8 +2,6 @@
 let
   customRC = import ./load-config.nix { inherit pkgs; };
 
-   
-
   plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
     nerdtree
@@ -22,30 +20,13 @@ let
     };
   };
 
-  # Combining these two dependency lists doesn't work properly for some reason.
-  # The issue is described here: https://primamateria.github.io/blog/neovim-nix/#add-runtime-dependency
-
-  nodeDeps = with pkgs; [
-    nodePackages.typescript-language-server
-    nodePackages.pyright
-  ];
-
-  rootDeps = with pkgs; [
-    nil
-  ];
-
-  nodeDependencies = pkgs.symlinkJoin {
-    name = "nodeDependencies";
-    paths = nodeDeps;
-  };
-
-  rootDependencies = pkgs.symlinkJoin {
-    name = "rootDependencies";
-    paths = rootDeps;
-  };
 in pkgs.writeShellApplication {
   name = "nvim";
-  runtimeInputs = [ nodeDependencies rootDependencies ];
+  runtimeInputs = with pkgs; [
+    nodePackages.typescript-language-server
+    nodePackages.pyright
+    nil
+  ];
   text = ''
     ${myNeovimUnwrapped}/bin/nvim "$@"
   '';
