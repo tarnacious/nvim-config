@@ -16,7 +16,7 @@
       };
 
       overlay-custom-neovim = prev: final: {
-        custom-neovim = import ./packages/custom-neovim.nix {
+        custom-neovim = import ./custom-neovim.nix {
           pkgs = final;
         };
       };
