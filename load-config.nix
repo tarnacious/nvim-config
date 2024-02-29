@@ -5,15 +5,15 @@ let
       if pkgs.lib.strings.hasSuffix ".nix" file then
         pkgs.writeTextFile {
           name = pkgs.lib.strings.removeSuffix ".nix" file;
-          text = import ./${dir}/${file} { inherit pkgs; };
+          text = import ./config/${dir}/${file} { inherit pkgs; };
         } 
       else
        pkgs.writeTextFile {
          name = file;
-         text = builtins.readFile ./${dir}/${file};
+         text = builtins.readFile ./config/${dir}/${file};
       } 
     )
-    (builtins.attrNames (builtins.readDir ./${dir}));
+    (builtins.attrNames (builtins.readDir ./config/${dir}));
 
   sourceConfigFiles = files:
     builtins.concatStringsSep "\n" (builtins.map (file:

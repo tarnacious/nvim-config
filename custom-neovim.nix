@@ -1,6 +1,6 @@
 { pkgs }:
 let
-  customRC = import ./config { inherit pkgs; };
+  customRC = import ./load-config.nix { inherit pkgs; };
 
    
 
