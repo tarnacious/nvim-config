@@ -1,21 +1,20 @@
 { pkgs } : let
-  configDir = pkgs.stdenv.mkDerivation {
-    name = "chat-gpt-actions";
-    src = ../json;
-    installPhase = ''
-      mkdir -p $out/
-      cp ./* $out/
-    '';
-  };
-  actions = (builtins.attrNames (builtins.readDir configDir));
 
-  paths = builtins.map (file: "\"" + configDir + "/" + file + "\"") actions;
-  str = builtins.concatStringsSep ", " paths;
+  actions = builtins.map (file:
+       pkgs.writeTextFile {
+         name = file;
+         text = builtins.readFile ../resources/chatgpt/${file};
+      } 
+    )
+    (builtins.attrNames (builtins.readDir ../resources/chatgpt));
+
+
+  actionPaths = builtins.concatStringsSep ", " (builtins.map (action: "\"" + action + "\"") actions);
 in
   ''
   require("chatgpt").setup({
     api_key_cmd = "pass openai/vim",
-    actions_paths = { ${str} }
+    actions_paths = { ${actionPaths} }
   })
   vim.api.nvim_set_keymap("n", "<leader>aa", "<cmd>ChatGPT<cr>", { noremap = true })
   ''
