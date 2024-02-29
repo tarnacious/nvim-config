@@ -13,7 +13,7 @@ let
     solarized-nvim
   ];
 
-  myNeovimUnwrapped = pkgs.wrapNeovim pkgs.neovim {
+  customNeovim = pkgs.wrapNeovim pkgs.neovim {
     configure = {
       inherit customRC;
       packages.all.start = plugins;
@@ -28,6 +28,6 @@ in pkgs.writeShellApplication {
     nil
   ];
   text = ''
-    ${myNeovimUnwrapped}/bin/nvim "$@"
+    ${customNeovim}/bin/nvim "$@"
   '';
 }
