@@ -1,13 +1,11 @@
-# Personal Nix Vim Config
+# Personal Nix Neovim Config
 
-I somehow run into this great [blog post about setting up Neovim in a Nix
-Flake][neovim-nix]. As I recently had problems getting the ChatGPT-nvim plugin
-working with my existing configuration I decided to have a go at (re)building
-my Neovim configuration from scratch.
+This is my new primary nvim configuration. There is still a lot of
+configuration from my previous configuration I'm implementing as I need it.
 
-I hope to completely replace my previous configuration and deploy it as part of
-my system, but for now just trying some alternate plugin and bring over parts
-of my previous configuration I need in the new one.
+I initially based this on this excellent [blog post][neovim-nix], however I
+found it to be overly complicated and have been simplifying as I've been
+working with it.
 
 Start the custom Neovim with:
 
@@ -15,4 +13,16 @@ Start the custom Neovim with:
 nix run
 ```
 
-[neovim-nix]: https://primamateria.github.io/blog/neovim-nix
+or 
+
+```
+nix run github:tarnacious/nvim-config
+```
+
+or something like
+
+```
+alias nvim="nix run github:tarnacious/nvim-config --"
+```
+
+[neovim-nix]: https://primamateJuventusria.github.io/blog/neovim-nix
