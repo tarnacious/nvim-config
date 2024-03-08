@@ -12,9 +12,13 @@
   actionPaths = builtins.concatStringsSep ", " (builtins.map (action: "\"" + action + "\"") actions);
 in
   ''
-  require("chatgpt").setup({
-    api_key_cmd = "pass openai/vim",
-    actions_paths = { ${actionPaths} }
-  })
-  vim.api.nvim_set_keymap("n", "<leader>aa", "<cmd>ChatGPT<cr>", { noremap = true })
+  function ChatGPTSetup()
+    require("chatgpt").setup({
+      api_key_cmd = "pass openai/vim",
+      actions_paths = { ${actionPaths} }
+    })
+    vim.api.nvim_set_keymap("n", "<leader>aa", "<cmd>ChatGPT<cr>", { noremap = true })
+  end
+
+  vim.cmd("command! ChatGPTSetup lua ChatGPTSetup()")
   ''
