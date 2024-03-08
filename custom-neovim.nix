@@ -8,6 +8,7 @@ let
     telescope-nvim
     plenary-nvim
     nui-nvim
+    nvim-treesitter
     ChatGPT-nvim
     tokyonight-nvim
     solarized-nvim
@@ -26,6 +27,8 @@ in pkgs.writeShellApplication {
     nodePackages.typescript-language-server
     nodePackages.pyright
     nil
+    ripgrep
+    fd
   ];
   text = ''
     ${customNeovim}/bin/nvim "$@"
