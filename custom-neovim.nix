@@ -3,12 +3,21 @@ let
   customRC = import ./load-config.nix { inherit pkgs; };
 
   plugins = with pkgs.vimPlugins; [
-    nvim-lspconfig
     nerdtree
     telescope-nvim
     plenary-nvim
     nui-nvim
-    nvim-treesitter
+
+    nvim-treesitter    
+    nvim-treesitter.withAllGrammars
+    nvim-treesitter-textobjects
+    nvim-lspconfig
+
+    nvim-cmp
+    cmp-nvim-lsp
+    cmp-buffer
+    cmp-cmdline
+
     ChatGPT-nvim
     tokyonight-nvim
     solarized-nvim
