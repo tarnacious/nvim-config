@@ -1,7 +1,22 @@
 local lspconfig = require("lspconfig")
 lspconfig.tsserver.setup({})
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup({
+  settings = {
+    pyright = {
+      disableOrganizeImports = true, -- Using Ruff
+    },
+    python = {
+      analysis = {
+        ignore = { '*' }, -- Using Ruff
+        typeCheckingMode = 'off', -- Using mypy
+      },
+    },
+  },
+})
 lspconfig.nil_ls.setup({})
+lspconfig.ruff_lsp.setup({
+
+})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

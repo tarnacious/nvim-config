@@ -8,7 +8,7 @@ let
     plenary-nvim
     nui-nvim
 
-    nvim-treesitter    
+    nvim-treesitter
     nvim-treesitter.withAllGrammars
     nvim-treesitter-textobjects
     nvim-lspconfig
@@ -36,6 +36,8 @@ in pkgs.writeShellApplication {
     nodePackages.typescript-language-server
     nodePackages.pyright
     nil
+    ruff
+    ruff-lsp
     ripgrep
     fd
   ];
