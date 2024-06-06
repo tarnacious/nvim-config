@@ -18,6 +18,10 @@ let
     cmp-buffer
     cmp-cmdline
 
+    plantuml-syntax
+    plantuml-previewer-vim
+    open-browser-vim
+
     ChatGPT-nvim
     tokyonight-nvim
     solarized-nvim
@@ -40,6 +44,7 @@ in pkgs.writeShellApplication {
     ruff-lsp
     ripgrep
     fd
+    graphviz
   ];
   text = ''
     ${customNeovim}/bin/nvim "$@"
