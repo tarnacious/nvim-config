@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 lspconfig.pyright.setup({
   settings = {
     pyright = {
@@ -14,7 +14,7 @@ lspconfig.pyright.setup({
   },
 })
 lspconfig.nil_ls.setup({})
-lspconfig.ruff_lsp.setup({
+lspconfig.ruff.setup({
 
 })
 

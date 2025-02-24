@@ -4,12 +4,8 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs";
     };
-    neovim = {
-      url = "github:neovim/neovim/stable?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-  outputs = { self, nixpkgs, neovim }:
+  outputs = { self, nixpkgs }:
     let
       supportedSystems = [ "x86_64-linux" "x86_64-darwin" "aarch64-linux" "aarch64-darwin" ];
     in
@@ -18,7 +14,7 @@
       packages = nixpkgs.lib.genAttrs supportedSystems (system:
         let
           overlay-neovim = prev: final: {
-            neovim = neovim.packages.${system}.neovim;
+            neovim = nixpkgs.legacyPackages.${system}.neovim-unwrapped;
           };
 
           overlay-custom-neovim = prev: final: {
@@ -40,7 +36,7 @@
       apps = nixpkgs.lib.genAttrs supportedSystems (system:
         let
           overlay-neovim = prev: final: {
-            neovim = neovim.packages.${system}.neovim;
+            neovim = nixpkgs.legacyPackages.${system}.neovim-unwrapped;
           };
 
           overlay-custom-neovim = prev: final: {
