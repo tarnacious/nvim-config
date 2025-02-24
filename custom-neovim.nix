@@ -25,6 +25,8 @@ let
     ChatGPT-nvim
     tokyonight-nvim
     solarized-nvim
+
+    copilot-lua
   ];
 
   customNeovim = pkgs.wrapNeovim pkgs.neovim {
@@ -37,6 +39,7 @@ let
 in pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = with pkgs; [
+    nodejs
     nodePackages.typescript-language-server
     pyright
     nil
