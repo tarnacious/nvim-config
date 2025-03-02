@@ -3,9 +3,9 @@ require("copilot").setup({
     enabled = true,           -- Enable Copilot suggestions
     auto_trigger = true,      -- Automatically trigger suggestions
     keymap = {
-      accept = "<C-Right>",    -- Accept suggestion
-      prev = "<C-Left>",       -- Previous suggestion
-      next = "<C-Down>",       -- Next suggestion
+      accept = "<C-l>",       -- Accept suggestion
+      prev = "<C-k>",         -- Previous suggestion
+      next = "<C-j>",         -- Next suggestion
     },
   },
   panel = {
