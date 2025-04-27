@@ -18,6 +18,9 @@ let
     cmp-buffer
     cmp-cmdline
 
+    vim-bookmarks
+    telescope-vim-bookmarks-nvim
+
     plantuml-syntax
     plantuml-previewer-vim
     open-browser-vim
