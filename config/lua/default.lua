@@ -22,8 +22,12 @@ vim.api.nvim_set_keymap('n', '<leader>fn', ':let @+=expand("%:p")<CR>', { norema
 
 vim.keymap.set("n", "<leader>tf", function()
   local filename = vim.fn.expand("%")
-  vim.cmd("split | terminal npm test " .. filename)
-end, { desc = "Run npm test on current file" })
+  if filename:sub(-3) == ".py" then
+    vim.cmd("split | terminal mpb test " .. filename)
+  else
+    vim.cmd("split | terminal npm test " .. filename)
+  end
+end, { desc = "Run test command on current file" })
 
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
