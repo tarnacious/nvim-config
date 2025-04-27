@@ -21,6 +21,8 @@ let
     vim-bookmarks
     telescope-vim-bookmarks-nvim
 
+    gitsigns-nvim
+
     plantuml-syntax
     plantuml-previewer-vim
     open-browser-vim
