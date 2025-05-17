@@ -36,5 +36,8 @@ vim.opt.foldlevel = 99  -- don't auto fold
 
 vim.cmd[[autocmd BufWritePre * :%s/\s\+$//e]]
 
+vim.api.nvim_create_user_command("DeleteTerminals", function()
+  vim.cmd([[bufdo if &buftype ==# 'terminal' | bd! | endif]])
+end, {})
 
 vim.g['plantuml_previewer#viewer_path'] = '~/.plantuml'
