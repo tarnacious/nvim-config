@@ -20,6 +20,8 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fn', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
+vim.keymap.set('t', '<C-q>', [[<C-\><C-n>]], { noremap = true })
+
 vim.keymap.set("n", "<leader>tf", function()
   local filename = vim.fn.expand("%")
   if filename:sub(-3) == ".py" then

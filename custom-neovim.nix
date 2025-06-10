@@ -32,6 +32,7 @@ let
     solarized-nvim
 
     copilot-lua
+    claude-code-nvim
   ];
 
   customNeovim = pkgs.wrapNeovim pkgs.neovim {
