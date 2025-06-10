@@ -49,7 +49,6 @@ in pkgs.writeShellApplication {
     pyright
     nil
     ruff
-    ruff-lsp
     ripgrep
     fd
     graphviz
