@@ -20,7 +20,11 @@ vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fn', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
+-- Key maps for escaping terminal mode
 vim.keymap.set('t', '<C-q>', [[<C-\><C-n>]], { noremap = true })
+-- Escape terminal and switch windows
+vim.keymap.set('t', '<C-w>j', [[<C-\><C-n><C-w>j]], { noremap = true })
+vim.keymap.set('t', '<C-w>k', [[<C-\><C-n><C-w>k]], { noremap = true })
 
 vim.keymap.set("n", "<leader>tf", function()
   local filename = vim.fn.expand("%")
