@@ -18,7 +18,10 @@ vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>P', '"+P', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>P', '"+P', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>fn', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
+
+-- Copy the full or relative path of the current file to the clipboard
+vim.api.nvim_set_keymap('n', '<leader>fn', ':let @+=expand("%")<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ffn', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
 -- Key maps for escaping terminal mode
 vim.keymap.set('t', '<C-q>', [[<C-\><C-n>]], { noremap = true })
