@@ -1,22 +1,35 @@
-local lspconfig = require("lspconfig")
-lspconfig.ts_ls.setup({})
-lspconfig.pyright.setup({
+-- TypeScript
+vim.lsp.config.ts_ls = {}
+
+-- Python (Pyright)
+vim.lsp.config.pyright = {
   settings = {
     pyright = {
       disableOrganizeImports = true, -- Using Ruff
     },
     python = {
       analysis = {
-        ignore = { '*' }, -- Using Ruff
-        typeCheckingMode = 'off', -- Using mypy
+        ignore = { "*" },          -- Using Ruff
+        typeCheckingMode = "off",  -- Using mypy
       },
     },
   },
-})
-lspconfig.nil_ls.setup({})
-lspconfig.ruff.setup({
+}
 
+-- Nix
+vim.lsp.config.nil_ls = {}
+
+-- Ruff
+vim.lsp.config.ruff = {}
+
+
+vim.lsp.enable({
+  "ts_ls",
+  "pyright",
+  "nil_ls",
+  "ruff",
 })
+
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
