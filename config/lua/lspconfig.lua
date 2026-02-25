@@ -2,18 +2,32 @@
 vim.lsp.config.ts_ls = {}
 
 -- Python (Pyright)
-vim.lsp.config.pyright = {
-  settings = {
-    pyright = {
-      disableOrganizeImports = true, -- Using Ruff
-    },
-    python = {
-      analysis = {
-        ignore = { "*" },          -- Using Ruff
-        typeCheckingMode = "off",  -- Using mypy
-      },
+local pyright_settings = {
+  pyright = {
+    disableOrganizeImports = true, -- Using Ruff
+  },
+  python = {
+    analysis = {
+      ignore = { "*" },          -- Using Ruff
+      typeCheckingMode = "off",  -- Using mypy
     },
   },
+}
+
+-- Add Poetry python path if in a Poetry project
+if vim.fn.filereadable("pyproject.toml") == 1 then
+  local handle = io.popen("poetry env info --path 2>/dev/null")
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    if result and result ~= "" then
+      pyright_settings.python.pythonPath = vim.trim(result) .. "/bin/python"
+    end
+  end
+end
+
+vim.lsp.config.pyright = {
+  settings = pyright_settings,
 }
 
 -- Nix

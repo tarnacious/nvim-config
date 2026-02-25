@@ -53,6 +53,7 @@ in pkgs.writeShellApplication {
     ripgrep
     fd
     graphviz
+    poetry
   ];
   text = ''
     ${customNeovim}/bin/nvim "$@"
