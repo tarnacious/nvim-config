@@ -31,7 +31,6 @@ let
     tokyonight-nvim
     solarized-nvim
 
-    copilot-lua
     claude-code-nvim
   ];
 
