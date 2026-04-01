@@ -8,7 +8,6 @@ let
     plenary-nvim
     nui-nvim
 
-    nvim-treesitter
     nvim-treesitter.withAllGrammars
     nvim-treesitter-textobjects
     nvim-lspconfig
