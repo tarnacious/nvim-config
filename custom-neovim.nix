@@ -44,7 +44,7 @@ in pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = with pkgs; [
     nodejs
-    nodePackages.typescript-language-server
+    typescript-language-server
     pyright
     nil
     ruff
